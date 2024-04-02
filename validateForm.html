@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form name="form1">
+        <input type="text" id="naam" placeholder="name"> <br>
+        <input type="email" name="email1" placeholder="email"> <br>
+        <input type="password" id="pass" placeholder="pass"> <br> <br>
+        <button onclick="validate(document.form1.email1)">check</button>
+    </form>
+
+    <script>
+
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
+        function validate(inputText) {
+
+            let name = document.getElementById('naam').value;
+            let pass = document.getElementById('pass').value;
+
+            if (name === null || name === "") {
+                alert("enter ur name")
+            }
+            else if (pass.length < 6) {
+                alert('pass should 6 char long')
+            }
+
+            else if (inputText.value.match(mailformat)) {
+                alert('valid email')
+            }
+            else {
+                alert('invalid email')
+            }
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

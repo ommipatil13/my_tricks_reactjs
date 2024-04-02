@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tsk {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <input type="text" placeholder="enter your todo task" id="task" />
+    <button onclick="todo()">ToDo Task</button>
+
+    <div id="newTask"></div>
+
+    <script>
+
+        function todo() {
+            let ip = document.getElementById('task').value;
+            if (ip === "") {
+                alert("enter to do tasks")
+            }
+            else {
+                document.getElementById('newTask').innerHTML +=
+                    `<div>
+                ${document.getElementById('task').value}
+                <br>
+                <button id='del'> Task Remove </button>
+                <button id='cmp'> Task Completed </button>
+                <button id='upd'> Task Update </button>
+                </div>             
+                `
+
+                var delTask = document.querySelectorAll('#del');
+                var cmpTask = document.querySelectorAll('#cmp');
+
+                for (var i = 0; i < delTask.length; i++) {
+                    delTask[i].onclick = function () {
+                        this.parentNode.remove();
+                    }
+                }
+
+                for (var i = 0; i < cmpTask.length; i++) {
+                    cmpTask[i].onclick = function () {
+                        this.parentNode.classList.add('tsk')
+                    }
+                }
+
+
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
